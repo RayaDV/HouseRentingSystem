@@ -1,7 +1,6 @@
-﻿using HouseRentingSystem.Data;
+﻿using HouseRentingSystem.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 
 namespace Microsoft.Extensions.DependencyInjection  //change the namespace from HouseRentingSystem.Extensions
 {

@@ -1,4 +1,7 @@
-﻿using HouseRentingSystem.Infrastructure.Data;
+﻿using HouseRentingSystem.Core.Contracts.House;
+using HouseRentingSystem.Core.Services.House;
+using HouseRentingSystem.Infrastructure.Common;
+using HouseRentingSystem.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +11,8 @@ namespace Microsoft.Extensions.DependencyInjection  //change the namespace from 
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddScoped<IHouseService, HouseService>(); // when we create HouseService.cs
+
             return services;
         }
 
@@ -16,6 +21,8 @@ namespace Microsoft.Extensions.DependencyInjection  //change the namespace from 
             var connectionString = config.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
+
+            services.AddScoped<IRepository, Repository>(); // when we create Repository.cs
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 

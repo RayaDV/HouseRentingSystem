@@ -1,8 +1,7 @@
 ﻿using HouseRentingSystem.Core.Contracts;
 using HouseRentingSystem.Core.Models.Agent;
-using HouseRentingSystem.Extensions;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace HouseRentingSystem.Controllers
 {
@@ -17,7 +16,7 @@ namespace HouseRentingSystem.Controllers
         [HttpGet]
         public async Task<IActionResult> Become()
         {
-            if (await agentService.ExistsById(User.Id()))
+            if (await agentService.ExistsByIdAsync(User.Id()))
             {
                 return BadRequest();
             }

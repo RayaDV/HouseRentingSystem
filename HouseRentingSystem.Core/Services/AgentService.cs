@@ -18,11 +18,26 @@ namespace HouseRentingSystem.Core.Services
             this.repository = repository;
         }
 
-        public async Task<bool> ExistsById(string userId)
+        public Task CreateAsync(string userId, string phoneNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> ExistsByIdAsync(string userId)
         {
             return await repository
                 .AllReadOnly<Agent>()
                 .AnyAsync(a => a.UserId == userId);
+        }
+
+        public Task<bool> UserHasRentsAsync(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UserWithPhoneNumberExistsAsync(string phoneNumber)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace HouseRentingSystem.Core.Models.Agent
     {
         [Required(ErrorMessage = RequiredMessage)]
         [StringLength(AgentPhoneNumberMaxLength, 
-            MinimumLength = AgentPhoneNumberMaxLength, 
+            MinimumLength = AgentPhoneNumberMinLength, 
             ErrorMessage = LengthMessage)]
         [Display(Name = "Phone Number")]
         [Phone]
